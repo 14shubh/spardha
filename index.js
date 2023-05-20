@@ -1,5 +1,6 @@
 const cors = require('cors');
 const express = require('express');
+const port = process.env.PORT || 3000; 
 const app = express();
 app.use(cors());
 const bodyParser = require('body-parser');
@@ -24,7 +25,7 @@ mongoose.connect("mongodb+srv://spardha:spardha@cluster0.gffjq.mongodb.net/Spard
         app.use('/tournament', tournamentRouter);
         app.use('/contact', contactRouter);
         app.use(playerRouter);
-        app.listen(3000, () => {
+        app.listen(port, () => {
             console.log("Server Is Running")
             console.log("successfully connected to database....")
         })
